@@ -136,3 +136,49 @@ uint8_t PanavoxAC::getFanSpeed(void)
 {
 	return this->_fanSpeed;
 }
+
+void PanavoxAC::sendMoveFlap(void) {
+	panavox_ac_cmd_t cmd;
+	cmd.sign = PANAVOX_AC_SIGN;
+	cmd.type = PANAVOX_AC_CMD_MODE;
+  cmd.param1 = 0xE0;
+	cmd.param2 = 0x0F;
+	this->_irSender.send(&cmd);
+}
+
+void PanavoxAC::sendSwapLight(void) {
+	panavox_ac_cmd_t cmd;
+	cmd.sign = PANAVOX_AC_SIGN;
+	cmd.type = PANAVOX_AC_CMD_EXTRA;
+  cmd.param1 = 0xA5;
+	cmd.param2 = 0xF5;	
+	this->_irSender.send(&cmd);
+}
+
+void PanavoxAC::sendSuperMode(void) {
+	panavox_ac_cmd_t cmd;
+	cmd.sign = PANAVOX_AC_SIGN;
+	cmd.type = PANAVOX_AC_CMD_EXTRA;
+	cmd.param1 = 0xA2;
+  cmd.param2 = 0xF5;
+	this->_irSender.send(&cmd);
+}
+
+void PanavoxAC::sendAutoClean(void) {
+	panavox_ac_cmd_t cmd;
+	cmd.sign = PANAVOX_AC_SIGN;
+	cmd.type = PANAVOX_AC_CMD_EXTRA;
+  cmd.param1 = 0xAA;
+	cmd.param2 = 0xF5;	
+	this->_irSender.send(&cmd);
+}
+
+void PanavoxAC::sendFlapOscillation(void) {
+	panavox_ac_cmd_t cmd;
+
+	cmd.sign = PANAVOX_AC_SIGN;
+	cmd.type = PANAVOX_AC_CMD_MODE;
+  cmd.param1 = 0xE0;
+	cmd.param2 = 0x6B;	
+	this->_irSender.send(&cmd);
+}

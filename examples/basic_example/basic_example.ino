@@ -15,6 +15,9 @@ void setup() {
 
   // Send the configured settings to the AC
   ac.sendState();
+
+  // Enable Super mode
+  ac.sendSuperMode();
 }
 
 void loop() {

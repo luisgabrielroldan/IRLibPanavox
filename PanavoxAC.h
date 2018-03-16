@@ -28,6 +28,13 @@ public:
 	uint8_t getTemperature(void);
 	void setFanSpeed(uint8_t level);
 	uint8_t getFanSpeed(void);
+
+	// Extra commands
+	void sendMoveFlap(void);
+	void sendSwapLight(void);
+	void sendSuperMode(void);
+	void sendAutoClean(void);
+	void sendFlapOscillation(void);
 };
 
 #endif // PANAVOX_AC_H
